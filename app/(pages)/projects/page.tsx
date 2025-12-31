@@ -41,7 +41,7 @@ export default function ProjectPage() {
     animate: {
       opacity: 1,
       transition: {
-        duration: 0.20,
+        duration: 0.18,
         ease: [0.16, 1, 0.3, 1], // fast, calm, no lag
       },
     },
@@ -72,7 +72,7 @@ export default function ProjectPage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.15 }}
+              transition={{ delay: 0.08 }}
               className="text-sm text-zinc-400"
             >
               <span className="text-zinc-500">Tech I work with:</span>{" "}
