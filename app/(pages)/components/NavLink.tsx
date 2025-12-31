@@ -1,41 +1,51 @@
-import Link from 'next/link'
-import React from 'react'
+"use client"
 
-type Props = {}
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-function NavLink({}: Props) {
+export default function NavLink() {
+    const pathname = usePathname()
+
     const navData = [
-        {
-            id: 1,
-            title: "Overview",
-            link: "/"
-        },
-        {
-            id: 2,
-            title: "Projects",
-            link: "projects"
-        },
-        {
-            id: 3,
-            title: "Contact",
-            link: "contacts"
-        }
+        { id: 1, title: "Overview", link: "/" },
+        { id: 2, title: "Projects", link: "/projects" },
+        { id: 3, title: "Contact", link: "/contacts" },
     ]
-  return (
-    <section className='flex gap-4 flex-col'>
-        {
-            navData.map((nav) => (
-                <ul key={nav.id} className='text-sm'>
-                    <li>
-                        <Link href={nav.link}>
-                            {nav.title}
-                        </Link>
-                    </li>
-                </ul>
-            ))
-        }
-    </section>
-  )
-}
 
-export default NavLink
+    return (
+        <nav className="flex gap-6">
+            {navData.map((nav) => {
+                const isActive = pathname === nav.link
+
+                return (
+                    <Link
+                        key={nav.id}
+                        href={nav.link}
+                        className={`
+              relative
+              text-sm
+              transition-colors duration-300
+              ${isActive && "drop-shadow-[0_0_6px_rgba(255,255,255,0.3)]"}
+              ${isActive ? "text-zinc-100" : "text-zinc-400 hover:text-zinc-100"}
+            `}
+                    >
+                        {nav.title}
+
+                        {/* Underline */}
+                        <span
+                            className={`
+                absolute
+                left-0
+                -bottom-1
+                h-px
+                bg-zinc-100
+                transition-all duration-300
+                ${isActive ? "w-full" : "w-0 group-hover:w-full"}
+              `}
+                        />
+                    </Link>
+                )
+            })}
+        </nav>
+    )
+}
