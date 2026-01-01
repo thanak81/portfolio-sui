@@ -125,13 +125,19 @@ export default function ProjectPage() {
                 spaceBetween={20}
                 slideToClickedSlide
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                className="w-full"
+                // className="w-full"
                 keyboard={{ enabled: true }}
               >
                 {projects.map((project, index) => (
                   <SwiperSlide
                     key={project.id}
-                    className="!w-80 transition-all duration-500"
+                    className="
+  !w-[260px]
+  sm:!w-[280px]
+  md:!w-[300px]
+  lg:!w-80
+  transition-all duration-500
+"
                     style={{
                       transform:
                         activeIndex === index
