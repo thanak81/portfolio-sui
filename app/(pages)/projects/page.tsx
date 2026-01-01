@@ -58,7 +58,7 @@ export default function ProjectPage() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="flex flex-col h-screen overflow-hidden"
+          className="flex flex-col h-dvd overflow-hidden"
         >
           {/* Header */}
           <div className="shrink-0 space-y-3">
@@ -91,7 +91,7 @@ export default function ProjectPage() {
           {/* Carousel */}
           <div className="flex-1 flex flex-col">
             {/* Optical spacer */}
-            <div className="h-[clamp(180px,10vh,240px)] shrink-0" />
+            <div className="h-[clamp(160px,10vh,240px)] shrink-0" />
 
             <div className="relative w-full pb-[clamp(100px,14vh,220px)]">
               {/* Left fade */}
@@ -165,7 +165,7 @@ export default function ProjectPage() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="flex flex-col w-full min-h-screen overflow-y-auto"
+          className="flex flex-col w-full min-h-dvd overflow-y-auto"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           <style jsx>{`

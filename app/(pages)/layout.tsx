@@ -9,7 +9,7 @@ export default function HomeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="h-screen bg-zinc-950 text-zinc-100 overflow-hidden relative">
+    <main className="h-dvd bg-zinc-950 text-zinc-100 overflow-hidden relative">
       <section className="h-full py-8 px-6 md:px-12 flex flex-col">
         <div className="flex flex-col h-full gap-8 flex-1">
           <div className="pointer-events-none fixed inset-0 z-0">
