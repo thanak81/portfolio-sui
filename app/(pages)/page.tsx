@@ -3,16 +3,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaGithub,
-} from "react-icons/fa";
+// You actually don't use these directly, can remove if unused elsewhere
+// import {
+//   FaFacebookF,
+//   FaInstagram,
+//   FaLinkedinIn,
+//   FaGithub,
+// } from "react-icons/fa";
 import { ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { socialData } from "./data/data";
-
+import type { ReactNode } from "react";
 
 export const socialBrandColors = {
   facebook: "hover:text-[#1877F2]",
@@ -21,14 +22,13 @@ export const socialBrandColors = {
   github: "hover:text-zinc-100",
 } as const;
 
+type SocialBrand = keyof typeof socialBrandColors;
+
 export default function Home() {
   const router = useRouter();
 
   return (
-    <div
-      className="flex flex-col items-center justify-center h-full w-full relative"
-
-    >
+    <div className="flex flex-col items-center justify-center h-full w-full relative">
       {/* Avatar Glow */}
       <motion.div
         className="absolute w-[260px] h-[260px] rounded-full bg-blue-500/20 blur-3xl"
@@ -60,14 +60,14 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="
-        relative
-        w-full
-        h-full
-        rounded-full
-        overflow-hidden
-        border border-white/10
-        bg-zinc-900
-      "
+              relative
+              w-full
+              h-full
+              rounded-full
+              overflow-hidden
+              border border-white/10
+              bg-zinc-900
+            "
           >
             <Image
               src="/images/me.jpg"
@@ -90,7 +90,7 @@ export default function Home() {
         Thanak Mech
       </motion.h1>
 
-      {/* Subtitle (optional but recommended) */}
+      {/* Subtitle */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -112,10 +112,11 @@ export default function Home() {
             href={social.href}
             label={social.label}
             icon={<social.icon />}
-            brand={social.brand}
+            brand={social.brand as SocialBrand} // make sure socialData.brand matches this union
           />
         ))}
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -125,24 +126,21 @@ export default function Home() {
         <p className="text-sm text-zinc-400 leading-relaxed">
           Graduate student from RUPP. Currently im working
         </p>
-
-        {/* <p className="text-xs text-zinc-500 italic">
-          “I can do anything, just give me time.”
-        </p> */}
       </motion.div>
+
       <motion.button
         onClick={() => router.push("/projects")}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.4 }}
         className="
-    mt-10
-    flex items-center justify-center
-    text-zinc-400
-    hover:text-zinc-100
-    transition-colors
-    z-10
-  "
+          mt-10
+          flex items-center justify-center
+          text-zinc-400
+          hover:text-zinc-100
+          transition-colors
+          z-10
+        "
         aria-label="Explore projects"
       >
         <motion.div
@@ -159,6 +157,7 @@ export default function Home() {
     </div>
   );
 }
+
 function SocialIcon({
   href,
   icon,
@@ -166,9 +165,9 @@ function SocialIcon({
   brand,
 }: {
   href: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
-  brand: keyof typeof socialBrandColors;
+  brand: SocialBrand;
 }) {
   return (
     <a

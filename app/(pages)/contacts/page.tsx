@@ -1,12 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaGithub,
-} from "react-icons/fa";
 import { socialData } from "../data/data";
 
 export default function ContactPage() {
@@ -42,7 +36,7 @@ export default function ContactPage() {
 
       {/* Email CTA */}
       <motion.a
-        href="mailto:your@email.com"
+        href="mailto:thanakmech@gmail.com"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35 }}
@@ -77,7 +71,7 @@ export default function ContactPage() {
             href={social.href}
             label={social.label}
             icon={<social.icon />}
-            brand={social.brand}
+            hover={social.brand}
           />
         ))}
       </motion.div>

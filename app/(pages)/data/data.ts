@@ -40,7 +40,7 @@ export const socialData = [
     },
     {
         brand: "instagram",
-        href: "https://instagram.com/thanakmech",
+        href: "https://instagram.com/thanak_mech",
         label: "Instagram",
         icon: FaInstagram
     },
