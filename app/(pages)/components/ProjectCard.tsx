@@ -63,35 +63,19 @@ function ProjectCard({
       style={{
         WebkitMaskImage: `
     radial-gradient(
-      120% 80% at 50% 100%,
-      transparent 0%,
-      black 60%
-    ),
-    linear-gradient(
-      to bottom,
-      black 65%,
-      transparent 100%
+      140% 100% at 50% 110%,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.4) 55%,
+      rgba(0,0,0,0.8) 68%,
+      rgba(0,0,0,1) 78%
     )
+  
   `,
-        WebkitMaskComposite: "destination-in",
-        maskImage: `
-    radial-gradient(
-      120% 80% at 50% 100%,
-      transparent 0%,
-      black 60%
-    ),
-    linear-gradient(
-      to bottom,
-      black 65%,
-      transparent 100%
-    )
-  `,
-        maskComposite: "intersect",
       }}
       className={`
         group
         relative
-        h-100
+        h-[400px]
         w-full
         rounded-2xl
         rounded-b-none
@@ -148,7 +132,7 @@ function ProjectCard({
               {tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="text-xs text-zinc-400 bg-transparent px-3 py-1"
+                  className="text-xs text-zinc-00 bg-transparent px-3 py-1"
                 >
                   {tag}
                 </span>

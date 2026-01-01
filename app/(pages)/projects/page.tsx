@@ -95,10 +95,28 @@ export default function ProjectPage() {
 
             <div className="relative w-full pb-[clamp(100px,14vh,220px)]">
               {/* Left fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+              <div
+                className="
+    absolute left-0 top-0 bottom-0
+    w-12 sm:w-20 lg:w-32
+    bg-gradient-to-r
+    from-zinc-950/80 via-zinc-950/40 to-transparent
+    lg:from-zinc-950 lg:via-zinc-950/60
+    z-10 pointer-events-none
+  "
+              />
 
               {/* Right fade */}
-              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+              <div
+                className="
+    absolute right-0 top-0 bottom-0
+    w-12 sm:w-20 lg:w-32
+    bg-gradient-to-l
+    from-zinc-950/80 via-zinc-950/40 to-transparent
+    lg:from-zinc-950 lg:via-zinc-950/60
+    z-10 pointer-events-none
+  "
+              />
 
               <Swiper
                 onSwiper={setSwiperInstance}
