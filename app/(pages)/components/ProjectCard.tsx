@@ -127,24 +127,13 @@ function ProjectCard({
           <p className="text-sm text-zinc-400 line-clamp-3 leading-relaxed">
             {description}
           </p>
-          {tags && (
-            <div className="flex gap-2 flex-wrap">
-              {tags.map((tag, i) => (
-                <span
-                  key={i}
-                  className="text-xs text-zinc-00 bg-transparent px-3 py-1"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+     
 
           {activeCard && (
-            <div className="pt-6">
+            <div >
               <button
                 onClick={onViewDetails}
-                className="text-sm text-zinc-400 hover:text-zinc-600 flex cursor-pointer items-center gap-2 transition-colors"
+                className="text-sm text-zinc-200 hover:text-zinc-400 flex cursor-pointer items-center gap-2 transition-colors"
               >
                 View details
                 <span className="transition-transform group-hover:translate-x-0.5">
