@@ -1,29 +1,17 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Tilt from "react-parallax-tilt"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaGithub,
-} from "react-icons/fa"
-import { ChevronDown } from "lucide-react"
-import { useRouter } from "next/navigation"
-export const projects = [
-  {
-    id: 1,
-    title: "Resume Builder",
-    color: "blue" as const,
-    tags: ["Next.js", "TypeScript", "OpenAI"],
-  },
-  { id: 2, title: "E-commerce App", color: "purple" as const },
-  { id: 3, title: "Task Manager", color: "pink" as const },
-  { id: 4, title: "Portfolio Site", color: "orange" as const },
-  { id: 5, title: "Chat App", color: "green" as const },
-  { id: 6, title: "Dashboard", color: "teal" as const },
-]
+} from "react-icons/fa";
+import { ChevronDown } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { socialData } from "./data/data";
 
 
 export const socialBrandColors = {
@@ -31,15 +19,16 @@ export const socialBrandColors = {
   instagram: "hover:text-[#E4405F]",
   linkedin: "hover:text-[#0A66C2]",
   github: "hover:text-zinc-100",
-} as const
-
+} as const;
 
 export default function Home() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full relative">
+    <div
+      className="flex flex-col items-center justify-center h-full w-full relative"
+
+    >
       {/* Avatar Glow */}
       <motion.div
         className="absolute w-[260px] h-[260px] rounded-full bg-blue-500/20 blur-3xl"
@@ -91,7 +80,6 @@ export default function Home() {
         </div>
       </Tilt>
 
-
       {/* Name */}
       <motion.h1
         initial={{ opacity: 0, y: 10 }}
@@ -118,30 +106,15 @@ export default function Home() {
         transition={{ delay: 0.45, duration: 0.4 }}
         className="mt-5 flex items-center gap-5"
       >
-        <SocialIcon
-          href="https://facebook.com/yourname"
-          label="Facebook"
-          icon={<FaFacebookF />}
-          brand="facebook"
-        />
-        <SocialIcon
-          href="https://instagram.com/yourname"
-          label="Instagram"
-          icon={<FaInstagram />}
-          brand="instagram"
-        />
-        <SocialIcon
-          href="https://linkedin.com/in/yourname"
-          label="LinkedIn"
-          icon={<FaLinkedinIn />}
-          brand="linkedin"
-        />
-        <SocialIcon
-          href="https://github.com/yourname"
-          label="GitHub"
-          icon={<FaGithub />}
-          brand="github"
-        />
+        {socialData.map((social) => (
+          <SocialIcon
+            key={social.brand}
+            href={social.href}
+            label={social.label}
+            icon={<social.icon />}
+            brand={social.brand}
+          />
+        ))}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 8 }}
@@ -183,9 +156,8 @@ export default function Home() {
           <ChevronDown size={28} />
         </motion.div>
       </motion.button>
-
     </div>
-  )
+  );
 }
 function SocialIcon({
   href,
@@ -193,10 +165,10 @@ function SocialIcon({
   label,
   brand,
 }: {
-  href: string
-  icon: React.ReactNode
-  label: string
-  brand: keyof typeof socialBrandColors
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  brand: keyof typeof socialBrandColors;
 }) {
   return (
     <a
@@ -214,5 +186,5 @@ function SocialIcon({
     >
       {icon}
     </a>
-  )
+  );
 }

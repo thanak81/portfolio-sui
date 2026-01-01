@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaGithub,
-} from "react-icons/fa"
+} from "react-icons/fa";
+import { socialData } from "../data/data";
 
 export default function ContactPage() {
   return (
@@ -70,30 +71,15 @@ export default function ContactPage() {
         transition={{ delay: 0.45 }}
         className="flex items-center gap-6 z-10"
       >
-        <ContactIcon
-          href="https://facebook.com/yourname"
-          label="Facebook"
-          icon={<FaFacebookF />}
-          hover="hover:text-[#1877F2]"
-        />
-        <ContactIcon
-          href="https://instagram.com/yourname"
-          label="Instagram"
-          icon={<FaInstagram />}
-          hover="hover:text-[#E4405F]"
-        />
-        <ContactIcon
-          href="https://linkedin.com/in/yourname"
-          label="LinkedIn"
-          icon={<FaLinkedinIn />}
-          hover="hover:text-[#0A66C2]"
-        />
-        <ContactIcon
-          href="https://github.com/yourname"
-          label="GitHub"
-          icon={<FaGithub />}
-          hover="hover:text-zinc-100"
-        />
+        {socialData.map((social) => (
+          <ContactIcon
+            key={social.brand}
+            href={social.href}
+            label={social.label}
+            icon={<social.icon />}
+            brand={social.brand}
+          />
+        ))}
       </motion.div>
 
       {/* Quote */}
@@ -106,7 +92,7 @@ export default function ContactPage() {
         {/* “Great things are built through conversation.” */}
       </motion.p>
     </motion.div>
-  )
+  );
 }
 
 function ContactIcon({
@@ -115,10 +101,10 @@ function ContactIcon({
   label,
   hover,
 }: {
-  href: string
-  icon: React.ReactNode
-  label: string
-  hover: string
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  hover: string;
 }) {
   return (
     <a
@@ -138,5 +124,5 @@ function ContactIcon({
     >
       {icon}
     </a>
-  )
+  );
 }
