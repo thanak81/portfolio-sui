@@ -58,7 +58,7 @@ export default function ProjectPage() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="flex flex-col h-dvd overflow-hidden"
+          className="flex flex-col h-dvh overflow-hidden"
         >
           {/* Header */}
           <div className="shrink-0 space-y-3">
@@ -165,7 +165,7 @@ export default function ProjectPage() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="flex flex-col w-full min-h-dvd overflow-y-auto"
+          className="flex flex-col w-full min-h-dvh overflow-y-auto"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           <style jsx>{`
