@@ -75,7 +75,7 @@ export default function ProjectPage() {
               transition={{ delay: 0.08 }}
               className="text-sm text-zinc-400 flex gap-2 flex-col md:flex-row"
             >
-              <span className="text-zinc-500">Tech I work with:</span>
+              <span className="text-zinc-400">Tech I work with:</span>
               <div className="flex gap-2 tracking-wide flex-wrap">
                 {skills.map((skill, index) => (
                   <span
