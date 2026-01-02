@@ -7,7 +7,7 @@ type Props = {
   title?: string;
   description?: string;
   year?: string;
-  colorScheme?: "blue" | "purple" | "pink" | "orange" | "green" | "teal";
+  color?: "blue" | "purple" | "pink" | "orange" | "green" | "teal";
   onViewDetails?: () => void;
   activeCard?: boolean;
 };
@@ -18,7 +18,7 @@ function ProjectCard({
   title = "Project Name",
   description = "A brief description of what this project does",
   year = "2024",
-  colorScheme = "blue",
+  color = "blue",
   onViewDetails,
   activeCard,
 }: Props) {
@@ -55,7 +55,7 @@ function ProjectCard({
     },
   };
 
-  const scheme = colors[colorScheme];
+  const scheme = colors[color];
 
   return (
     <motion.div
@@ -82,12 +82,13 @@ function ProjectCard({
         p-6
         flex flex-col
         cursor-pointer
-        bg-zinc-900/50
-        border border-white/5
+        
+        border border-zinc-200
         border-b-0
         transition-all duration-500
         hover:-translate-y-1
         ${scheme.glow}
+   
       `}
     >
       {/* Nebula aura */}
@@ -127,7 +128,7 @@ function ProjectCard({
           <p className="text-sm text-zinc-400 line-clamp-3 leading-relaxed">
             {description}
           </p>
-     
+
 
           {activeCard && (
             <div >

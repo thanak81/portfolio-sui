@@ -117,6 +117,57 @@ export default function ProjectPage() {
     z-10 pointer-events-none
   "
               />
+              {/* Swipe Indicator */}
+              <AnimatePresence>
+                {activeIndex === 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute -top-18 left-1/2 -translate-x-1/2 z-20
+                 flex items-center gap-2 text-xs text-zinc-400"
+                  >
+                    {/* <motion.span
+                      animate={{ x: [-6, 6, -6] }}
+                      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                    >
+                      ←
+                    </motion.span> */}
+
+                    <span className="tracking-wide">Swipe</span>
+
+                    <motion.span
+                      animate={{ x: [6, -6, 6] }}
+                      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                    >
+                      →
+                    </motion.span>
+                  </motion.div>
+                )}
+
+                {activeIndex === projects.length - 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute -top-18 left-1/2 -translate-x-1/2 z-20
+                 flex items-center gap-2 text-xs text-zinc-400"
+                  >
+                    <motion.span
+                      animate={{ x: [-6, 6, -6] }}
+                      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                    >
+                      ←
+                    </motion.span>
+
+                    <span className="tracking-wide">Swipe</span>
+
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <Swiper
                 onSwiper={setSwiperInstance}
@@ -124,8 +175,9 @@ export default function ProjectPage() {
                 centeredSlides
                 spaceBetween={20}
                 slideToClickedSlide
-                onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                // className="w-full"
+                onSlideChange={(swiper) => {
+                  setActiveIndex(swiper.activeIndex);
+                }}                // className="w-full"
                 keyboard={{ enabled: true }}
               >
                 {projects.map((project, index) => (
@@ -165,14 +217,9 @@ export default function ProjectPage() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="flex flex-col w-full min-h-dvh overflow-y-auto"
+          className="flex flex-col w-full min-h-dvh overflow-y-auto no-scrollbar"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <style jsx>{`
-            section::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
 
           {/* Back button */}
           <button

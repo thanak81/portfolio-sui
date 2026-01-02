@@ -14,6 +14,7 @@ import { ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { socialData } from "./data/data";
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 export const socialBrandColors = {
   facebook: "hover:text-[#1877F2]",
@@ -170,8 +171,9 @@ function SocialIcon({
   brand: SocialBrand;
 }) {
   return (
-    <a
+    <Link
       href={href}
+      title={label}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
@@ -184,6 +186,6 @@ function SocialIcon({
       `}
     >
       {icon}
-    </a>
+    </Link>
   );
 }

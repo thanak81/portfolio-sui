@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { socialData } from "../data/data";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -101,11 +102,12 @@ function ContactIcon({
   hover: string;
 }) {
   return (
-    <a
+    <Link
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
+      title={label}
       className={`
         text-zinc-400
         ${hover}
@@ -117,6 +119,6 @@ function ContactIcon({
       `}
     >
       {icon}
-    </a>
+    </Link>
   );
 }
