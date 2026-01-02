@@ -19,7 +19,6 @@ export default function HomeLayout({
               color="rgba(255,255,255,0.6)"
             />
           </div>
-
           <div className="self-end relative z-10">
             <NavLink />
           </div>

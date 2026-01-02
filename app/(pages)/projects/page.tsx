@@ -21,6 +21,7 @@ type Project = {
   sourceUrl?: string;
   imageUrl?: string;
 };
+import Tilt from "react-parallax-tilt";
 
 export default function ProjectPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -125,7 +126,7 @@ export default function ProjectPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute -top-18 left-1/2 -translate-x-1/2 z-20
+                    className="absolute -top-20 left-1/2 -translate-x-1/2 z-20
                  flex items-center gap-2 text-xs text-zinc-400"
                   >
                     {/* <motion.span
@@ -152,7 +153,7 @@ export default function ProjectPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute -top-18 left-1/2 -translate-x-1/2 z-20
+                    className="absolute -top-20 left-1/2 -translate-x-1/2 z-20
                  flex items-center gap-2 text-xs text-zinc-400"
                   >
                     <motion.span
@@ -168,7 +169,6 @@ export default function ProjectPage() {
                   </motion.div>
                 )}
               </AnimatePresence>
-
               <Swiper
                 onSwiper={setSwiperInstance}
                 slidesPerView="auto"
@@ -180,6 +180,7 @@ export default function ProjectPage() {
                 }}                // className="w-full"
                 keyboard={{ enabled: true }}
               >
+
                 {projects.map((project, index) => (
                   <SwiperSlide
                     key={project.id}
@@ -198,14 +199,23 @@ export default function ProjectPage() {
                       opacity: activeIndex === index ? 1 : 0.6,
                     }}
                   >
-                    <ProjectCard
-                      {...project}
-                      activeCard={activeIndex === index}
-                      onViewDetails={handleViewDetails}
-                    />
+                    <Tilt
+                      tiltMaxAngleX={activeIndex === index ? 6 : 0}
+                      tiltMaxAngleY={activeIndex === index ? 6 : 0}
+                      scale={activeIndex === index ? 1.04 : 1}
+                      transitionSpeed={800}
+                    >
+                      <ProjectCard
+                        {...project}
+                        activeCard={activeIndex === index}
+                        onViewDetails={handleViewDetails}
+                      />
+                    </Tilt>
+
                   </SwiperSlide>
                 ))}
               </Swiper>
+
             </div>
           </div>
         </motion.section>
