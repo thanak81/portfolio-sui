@@ -10,6 +10,7 @@ export default function NavLink() {
         { id: 1, title: "Overview", link: "/" },
         { id: 2, title: "Projects", link: "/projects" },
         { id: 3, title: "Contact", link: "/contacts" },
+        { id: 4, title: "Blog", link: "/blog" },
     ]
 
     return (
